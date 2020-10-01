@@ -1,11 +1,9 @@
 const trackerJob = require("./tracker").job;
-const trackerRun = require("./tracker").run;
 
 function schedule() {
   console.log("[TASKS] Scheduling tasks...");
 
-  // trackerJob.start();
-  trackerRun();
+  trackerJob.start();
 
   console.log("[TASKS] Tasks scheduled.");
 }
