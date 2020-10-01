@@ -11,7 +11,7 @@ router.get("/:id/progress", async function (req, res, next) {
       .table("contribution")
       .select("participant_id", "repo_id")
       .groupByRaw("participant_id, repo_id")
-      .where({ participant_id: id });
+      .where({ participant_id: id, valid: true });
 
     return res.json({ unique: contributions.length });
   } catch (error) {
