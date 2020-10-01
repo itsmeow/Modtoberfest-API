@@ -59,7 +59,7 @@ async function run() {
 
             newPr += 1;
 
-            if (!insertedId) {
+            if (!prId) {
               throw new Error("No insertion ID returned from saving PR");
             }
           } catch (error) {
