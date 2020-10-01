@@ -47,7 +47,7 @@ async function run() {
         } else {
           // Save new PR
           try {
-            prId = await knex("pullrequest")
+            const res = await knex("pullrequest")
               .insert({
                 repository_id: repo.id,
                 github_id: pr.id,
@@ -57,6 +57,7 @@ async function run() {
               })
               .returning("id");
 
+            prId = res[0];
             newPr += 1;
 
             if (!prId) {

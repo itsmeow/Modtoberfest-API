@@ -1,11 +1,16 @@
+const e = require("express");
+
 const trackerJob = require("./tracker").job;
 
 function schedule() {
-  console.log("[TASKS] Scheduling tasks...");
+  console.log("[Task Manager] Scheduling tasks...");
 
-  trackerJob.start();
-
-  console.log("[TASKS] Tasks scheduled.");
+  if (process.env.DISABLE_TASK) {
+    console.log("[Task Manager] Tasks are disabled, skipping.");
+  } else {
+    trackerJob.start();
+    console.log("[Task Manager] Tasks scheduled.");
+  }
 }
 
 module.exports = {
